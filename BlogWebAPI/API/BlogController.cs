@@ -25,6 +25,7 @@ namespace BlogWebAPI.API
     {
         private readonly IHttpContextAccessor _httpContext;
         protected readonly string _userId;
+        protected readonly string _userEmail;
         private readonly IMapper _mapper;
         private readonly IBlogRepository _blogRepository;
         private readonly ILogger<AuthController> _logger;
@@ -48,7 +49,7 @@ namespace BlogWebAPI.API
                 var claimsIdentity = _httpContext.HttpContext.User.Identity as ClaimsIdentity;
                 var claims = claimsIdentity.Claims.Select(x => new { type = x.Type, value = x.Value });
                 _userId = claims.FirstOrDefault(x => x.type == "UserId")?.value;
-
+                _userEmail = claims.FirstOrDefault(x => x.type == "Email")?.value;
             }
         }
 
@@ -115,7 +116,7 @@ namespace BlogWebAPI.API
         {
             if (ModelState.IsValid)
             {
-                await _hub.Clients.All.SendAsync("notifyUser_broadcast", "New Blog", blogItem.Title, "Add");
+                await _hub.Clients.All.SendAsync("notifyUser_broadcast", $"New Blog from {_userEmail}", blogItem.Title, "Add");
 
                 blogItem.CreateDate = DateTime.Now;
                 blogItem.Author= _userId;
@@ -174,7 +175,7 @@ namespace BlogWebAPI.API
             if (ModelState.IsValid)
             {
 
-                await _hub.Clients.All.SendAsync("notifyUser_broadcast", "Update Blog", blogItem.Title, "Update");
+                await _hub.Clients.All.SendAsync("notifyUser_broadcast", $"Update Blog by {_userEmail}", blogItem.Title, "Update");
 
                 blogItem.CreateDate = DateTime.Now;
                 blogItem.Author = _userId;
@@ -232,7 +233,7 @@ namespace BlogWebAPI.API
                         statuscode = (int)API_StatusCode.Error,
                     });
             }
-            await _hub.Clients.All.SendAsync("notifyUser_broadcast", "Delete Blog", blogItem.Title,"Delete");
+            await _hub.Clients.All.SendAsync("notifyUser_broadcast", $"Delete Blog by {_userEmail}", blogItem.Title,"Delete");
             return await _blogRepository.Remove(blogItem) > 0
                ? Ok(
                             new APIResponse
