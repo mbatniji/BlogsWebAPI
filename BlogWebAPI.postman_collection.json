@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "ec3c21e8-0688-4ef4-a49a-0a7e8f9bdc0f",
+		"name": "BlogWebAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Blog/GetAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYmF0bmlqaUBnbWFpbC5jb20iLCJFbWFpbCI6Im1iYXRuaWppQGdtYWlsLmNvbSIsIlVzZXJJZCI6ImU4MDMwOTNhLTBjM2UtNDRkYy1iZGQwLTFjZjQxOTBkNGMxYSIsImV4cCI6MTg4Mjc5MDE3MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIn0.LxOvF2jgIE20V2OHBI1hXX5jCVxgLrlWmpbxc4jBNLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Blog?Page=1&SearchValue=",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Blog"
+					],
+					"query": [
+						{
+							"key": "Page",
+							"value": "1"
+						},
+						{
+							"key": "SearchValue",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog/GetOne",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYmF0bmlqaUBnbWFpbC5jb20iLCJFbWFpbCI6Im1iYXRuaWppQGdtYWlsLmNvbSIsIlVzZXJJZCI6ImU4MDMwOTNhLTBjM2UtNDRkYy1iZGQwLTFjZjQxOTBkNGMxYSIsImV4cCI6MTg4Mjc5MDE3MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIn0.LxOvF2jgIE20V2OHBI1hXX5jCVxgLrlWmpbxc4jBNLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Blog/1",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Blog",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog/Add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYmF0bmlqaUBnbWFpbC5jb20iLCJFbWFpbCI6Im1iYXRuaWppQGdtYWlsLmNvbSIsIlVzZXJJZCI6ImU4MDMwOTNhLTBjM2UtNDRkYy1iZGQwLTFjZjQxOTBkNGMxYSIsImV4cCI6MTg4Mjc5MDE3MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIn0.LxOvF2jgIE20V2OHBI1hXX5jCVxgLrlWmpbxc4jBNLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Title",
+							"value": "title value",
+							"type": "text"
+						},
+						{
+							"key": "Subtitle",
+							"value": "sub title value",
+							"type": "text"
+						},
+						{
+							"key": "ImageUrl",
+							"value": "image url",
+							"type": "text"
+						},
+						{
+							"key": "Body",
+							"value": "<b>sample </b><i>from </i><span style=\"background-color: rgb(255, 255, 0);\">body</span>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Blog",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Blog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog/Update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYmF0bmlqaUBnbWFpbC5jb20iLCJFbWFpbCI6Im1iYXRuaWppQGdtYWlsLmNvbSIsIlVzZXJJZCI6ImU4MDMwOTNhLTBjM2UtNDRkYy1iZGQwLTFjZjQxOTBkNGMxYSIsImV4cCI6MTg4Mjc5MDE3MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIn0.LxOvF2jgIE20V2OHBI1hXX5jCVxgLrlWmpbxc4jBNLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "Title",
+							"value": "test update title",
+							"type": "text"
+						},
+						{
+							"key": "Subtitle",
+							"value": "new sub title",
+							"type": "text"
+						},
+						{
+							"key": "ImageUrl",
+							"value": "https://media.licdn.com/dms/image/C4D0BAQHXLZiGuQOGhA/company-logo_200_200/0?e=2159024400&v=beta&t=IR3o7r2Lq_ZfG15XdvBDwmmFWnKpP9cU0yFP1z1zlXw",
+							"type": "text"
+						},
+						{
+							"key": "Body",
+							"value": "<p>ttss<span style=\"background-color: rgb(255, 255, 0);\">sssswerwerwss</span></p>",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Blog/1",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Blog",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Blog/DeleteOne",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJtYmF0bmlqaUBnbWFpbC5jb20iLCJFbWFpbCI6Im1iYXRuaWppQGdtYWlsLmNvbSIsIlVzZXJJZCI6ImU4MDMwOTNhLTBjM2UtNDRkYy1iZGQwLTFjZjQxOTBkNGMxYSIsImV4cCI6MTg4Mjc5MDE3MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzNTQvYXBpL3YxIn0.LxOvF2jgIE20V2OHBI1hXX5jCVxgLrlWmpbxc4jBNLs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Blog/1",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Blog",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"type": "text",
+						"value": "ar-JO"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Email",
+							"value": "mbatniji@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "Password",
+							"value": "P@ssw0rd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{BlogAPIURL}}/api/v1/Auth/login",
+					"host": [
+						"{{BlogAPIURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
