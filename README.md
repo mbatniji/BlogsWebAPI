@@ -1,2 +1,2 @@
 # BlogsWebAPI
-this project is uplouded for WWB
+this project is uplouded for WWB.
