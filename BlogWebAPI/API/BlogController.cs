@@ -58,7 +58,8 @@ namespace BlogWebAPI.API
         /// </summary>
         /// <param name="Page">Page number</param>
         /// <param name="SearchValue">search value parameter</param>
-        /// <returns></returns>
+        /// <returns>return a lidt of blogs</returns>
+        [HttpGet]
         public ActionResult GetBlogItem(int Page = 1, string SearchValue = "")
         {
             var _takeDefault = 20;
@@ -80,7 +81,7 @@ namespace BlogWebAPI.API
         /// GET: api/BlogItem/5
         /// </summary>
         /// <param name="id">Blog Id</param>
-        /// <returns></returns>
+        /// <returns>return one blog</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Blog>> GetBlogItem(int id)
         {
@@ -110,7 +111,7 @@ namespace BlogWebAPI.API
         /// Add new Blog
         /// </summary>
         /// <param name="blogItem">BLog model</param>
-        /// <returns></returns>
+        /// <returns>retrun the status of the process</returns>
         [HttpPost]
         public async Task<ActionResult<Blog>> PostBlogItem(BlogVM blogItem)
         {
@@ -163,7 +164,7 @@ namespace BlogWebAPI.API
         /// </summary>
         /// <param name="id">Blog Id</param>
         /// <param name="blogItem">Blog model</param>
-        /// <returns></returns>
+        /// <returns>retrun the status of the process</returns>
         [HttpPut("{id}")]
         public async Task<ActionResult<Blog>> PutBlogItem(int id, BlogVM blogItem)
         {
@@ -218,7 +219,7 @@ namespace BlogWebAPI.API
         /// Delete Blog
         /// </summary>
         /// <param name="id">BLog Id</param>
-        /// <returns></returns>
+        /// <returns>retrun the status of the process</returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Blog>> DeleteBlogItem(int id)
         {
