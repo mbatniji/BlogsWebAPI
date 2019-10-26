@@ -1,5 +1,5 @@
 # BlogsWebAPI
-In this priject we using Asp.Net Core 3 to create a Blogs WepAPI.
+In this project we using Asp.Net Core 3 to create a Blogs WepAPI.
 # To login to the system use:
 user name: mbatniji@gmail.com
 password: P@ssw0rd
